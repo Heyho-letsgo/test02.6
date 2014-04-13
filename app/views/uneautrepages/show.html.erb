@@ -1,19 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Uneautrepage -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Uneautrepage %></h1>
+</div>
 
-<p>
-  <strong>Civilite:</strong>
-  <%= @uneautrepage.civilite %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:civilite) %></dt>
+      <dd><pre class="prettyprint"><%= @uneautrepage.civilite %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:prenom) %></dt>
+      <dd><pre class="prettyprint"><%= @uneautrepage.prenom %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:nom) %></dt>
+      <dd><pre class="prettyprint"><%= @uneautrepage.nom %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Prenom:</strong>
-  <%= @uneautrepage.prenom %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              uneautrepages_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_uneautrepage_path(@uneautrepage), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              uneautrepage_path(@uneautrepage),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Nom:</strong>
-  <%= @uneautrepage.nom %>
-</p>
-
-<%= link_to 'Edit', edit_uneautrepage_path(@uneautrepage) %> |
-<%= link_to 'Back', uneautrepages_path %>
