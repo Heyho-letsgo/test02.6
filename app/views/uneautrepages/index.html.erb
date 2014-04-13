@@ -1,0 +1,31 @@
+<h1>Listing uneautrepages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Civilite</th>
+      <th>Prenom</th>
+      <th>Nom</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @uneautrepages.each do |uneautrepage| %>
+      <tr>
+        <td><%= uneautrepage.civilite %></td>
+        <td><%= uneautrepage.prenom %></td>
+        <td><%= uneautrepage.nom %></td>
+        <td><%= link_to 'Show', uneautrepage %></td>
+        <td><%= link_to 'Edit', edit_uneautrepage_path(uneautrepage) %></td>
+        <td><%= link_to 'Destroy', uneautrepage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Uneautrepage', new_uneautrepage_path %>
