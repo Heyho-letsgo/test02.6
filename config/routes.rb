@@ -1,4 +1,5 @@
 Test02::Application.routes.draw do
+  get "unepage/index"
   resources :uneautrepages do
   #->Prelang (voting/acts_as_votable)
   member do
